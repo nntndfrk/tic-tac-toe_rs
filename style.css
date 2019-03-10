@@ -1,0 +1,215 @@
+@font-face {
+  font-family: "GothamNarrow-Book";
+  src: url("./vendor/fonts/GothamNarrow-Book.woff") format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'GothamNarrow-Book', sans-serif;
+  font-weight: 500;
+}
+
+body {
+  background-color: #eee;
+}
+
+.header {
+  font-size: 32px;
+  padding: .6vh;
+  padding-left: 4vw;
+  overflow: hidden;
+  color:#8EC1EF;
+  background-color: #4B443C;
+}
+
+.player, .header h1 {
+  font-family: 'Oleo Script';
+  font-weight: bold;
+}
+
+.draw {
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#game-board {
+  position: relative;
+}
+
+.game-section {
+  text-align: center;
+}
+
+.square {
+  display: inline-block;
+  text-align: center;
+  background-color: #4B443C;
+  width: 160px;
+  height: 160px;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #999;
+  padding: 0;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.yellow {
+  color: #FBE367;
+}
+
+.blue {
+  color: #8EC1EF;
+  
+}
+
+.yellow,
+.blue {
+  font-size: 140px;
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 50%;
+}
+
+.game-info-container {
+  text-align: center;
+  padding: 20px;
+  font-size: 51px;
+  color: #4b443c;
+}
+
+.button {
+  background-color: #8EC1EF;
+  border: none;
+  color: #4b443c;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
+  border-radius: 10px;
+}
+
+.axis-line {
+  visibility: hidden;
+  position: absolute;
+  height: 10px;
+  width: 120%;
+  background-color: #bfe8b2d6;
+}
+
+.axis-line__0 {
+  left: 50%;
+  top: calc(16.5% - 4px);
+  transform: translate(-50%) scaleX(.9);
+}
+
+.axis-line__1 {
+  left: 50%;
+  top: calc(50% - 4px);
+  transform: translate(-50%) scaleX(.9);
+}
+
+.axis-line__2 {
+  left: 50%;
+  top: calc(82.5% - 3px);
+  transform: translate(-50%) scaleX(.9);
+}
+
+.axis-line__3 {
+  left: 16.5%;
+  top: calc(50% - 2px);
+  transform: translate(-50%) rotate(90deg) scaleX(.9);
+}
+
+.axis-line__4 {
+  left: 50%;
+  top: calc(50% - 2px);
+  transform: translate(-50%) rotate(90deg) scaleX(.9);
+}
+
+.axis-line__5 {
+  left: 83.5%;
+  top: calc(50% - 2px);
+  transform: translate(-50%) rotate(90deg) scaleX(.9);
+}
+
+.axis-line__6 {
+  left: 50%;
+  top: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg) scaleX(1.2);
+}
+
+.axis-line__7 {
+  left: 50%;
+  top: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(-45deg) scaleX(1.2);
+}
+
+@media (max-width: 630px) {
+  .header {
+    font-size: 5vw;
+  }
+  .square {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 2.4vw;
+  }
+
+  .yellow,
+  .blue {
+    font-size: 22vw;
+  }
+
+  .game-info-container .content {
+    font-size: 8vw;
+  }
+
+  .game-info-container .button {
+    font-size: 5vw;
+  }
+
+  .axis-line {
+    height: 1.5vw;
+  }
+}
+
+@media (max-height: 830px) and (orientation: landscape) {
+  .header h1 {
+    font-size: 3vh;
+  }
+  .square {
+    width: 12vh;
+    height: 12vh;
+    border-radius: 2.4vh;
+  }
+
+  .yellow,
+  .blue {
+    font-size: 10vh;
+  }
+
+  .game-info-container .content {
+    font-size: 6vh;
+  }
+
+  .game-info-container .button {
+    font-size: 4vh;
+  }
+
+  .axis-line {
+    height: 1.1vh;
+  }
+}
