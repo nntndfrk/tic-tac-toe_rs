@@ -2,6 +2,7 @@ export class GameController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.isGameStarted = false;
 
     this.resetHandler = () => {
       this.startNewGame();
@@ -13,7 +14,7 @@ export class GameController {
 
       let [row, column] = index.split(':');
 
-      let stepValue = this.model.makeStep(row, column);
+      let stepValue = this.model.makeStep(parseInt(row), parseInt(column));
 
       if (!stepValue) return;
 
@@ -39,6 +40,10 @@ export class GameController {
   }
 
   startNewGame() {
+    if (!this.isGameStarted) {
+      this.isGameStarted = true;
+      this.view.renderGameBoard(this.model.size);
+    }
     this.model.resetData();
     this.view.resetView();
     this.view.renderInfo(this.model.isFirstStep, this.model.xIsNext);

@@ -1,59 +1,24 @@
 export class GameModel {
-  constructor() {
-    this.winnerMatrix = [
-      [
-        [0, 0],
-        [0, 1],
-        [0, 2]
-      ],
-      [
-        [1, 0],
-        [1, 1],
-        [1, 2]
-      ],
-      [
-        [2, 0],
-        [2, 1],
-        [2, 2]
-      ],
-      [
-        [0, 0],
-        [1, 0],
-        [2, 0]
-      ],
-      [
-        [0, 1],
-        [1, 1],
-        [2, 1]
-      ],
-      [
-        [0, 2],
-        [1, 2],
-        [2, 2]
-      ],
-      [
-        [0, 0],
-        [1, 1],
-        [2, 2]
-      ],
-      [
-        [0, 2],
-        [1, 1],
-        [2, 0]
-      ],
-    ];
-    this.gameData = null;
+  constructor(utils, size = 3) {
+    this.utils = utils;
+    this.size = size;
+    this.winnerMatrix = this.utils.getWinnerCombinations(size);
+    this.gameData = [];
     this.isFirstStep = true;
     this.xIsNext = null;
     this.isGameFinished = false;
   }
 
   resetData() {
-    this.gameData = [
-      Array(3).fill(null),
-      Array(3).fill(null),
-      Array(3).fill(null),
-    ];
+    this.gameData = [];
+    for (let i = 0; i<this.size; i++) {
+        let outerArr = [];
+        for (let j = 0; j<this.size; j++) {
+          outerArr.push(null)
+        }
+        this.gameData.push(outerArr);
+    }
+
 
     this.xIsNext = true;
     this.isFirstStep = true;
@@ -68,7 +33,7 @@ export class GameModel {
     this.gameData[row][column] = this.xIsNext ? 'X' : 'O';
 
     this.xIsNext = !this.xIsNext;
-
+    // console.log(this.gameData);
     return this.gameData[row][column];
   }
 
@@ -82,14 +47,16 @@ export class GameModel {
       }
 
       if (valueList.every(value => value === 'X')) {
+        // console.log(winnerLine);
         winnerCheck = {
           winner: 1,
-          line: this.winnerMatrix.indexOf(winnerLine)
+          line: winnerLine
         };
       } else if (valueList.every(value => value === 'O')) {
+        console.log(winnerLine);
         winnerCheck = {
           winner: 2,
-          line: this.winnerMatrix.indexOf(winnerLine)
+          line: winnerLine
         };
       }
     }
@@ -105,4 +72,42 @@ export class GameModel {
     }
     return winnerCheck;
   }
+
+  // calculateWinnerMaterix(size) {
+  //   let outArr = [];
+  //   let innerArr = [];
+  //
+  //   for (let i = 0; i<size; i++) {
+  //     // horizontal combinations
+  //     innerArr = [];
+  //     for (let j = 0; j<size; j++) {
+  //       innerArr.push([i, j]);
+  //     }
+  //     outArr.push(innerArr);
+  //   }
+  //
+  //   // vertical combinations
+  //   for (let i = 0; i<size; i++) {
+  //     innerArr = [];
+  //     for (let j = 0; j<size; j++) {
+  //       innerArr.push([j, i]);
+  //     }
+  //     outArr.push(innerArr);
+  //   }
+  //
+  //   // diagonal combinations
+  //   for (let i = 0; i<size; i++) {
+  //     innerArr = [];
+  //     for (let j = 0; j<size; j++) {
+  //       if (i === j || i !== j) {
+  //         innerArr.push([j, i]);
+  //       }
+  //     }
+  //     outArr.push(innerArr);
+  //   }
+  //
+  //   return outArr;
+  // }
+
+
 }

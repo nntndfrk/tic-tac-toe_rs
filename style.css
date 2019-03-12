@@ -43,6 +43,10 @@ body {
   position: relative;
 }
 
+#svg{
+  position:absolute;
+}
+
 .game-section {
   text-align: center;
 }
@@ -68,6 +72,10 @@ body {
 .blue {
   color: #8EC1EF;
   
+}
+
+.green-bg {
+  background-color: #009688;
 }
 
 .yellow,
@@ -103,9 +111,16 @@ body {
 
 .axis-line {
   position: absolute;
-  height: 10px;
-  width: 120%;
-  background-color: #bfe8b2d6;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /*background-color: #bfe8b2d6;*/
+}
+
+#svg-line {
+  stroke:rgb(255,0,0);
+  stroke-width:2;
+  position: relative;
 }
 
 .axis-line__0 {
@@ -211,3 +226,10 @@ body {
     height: 1.1vh;
   }
 }
+
+/*select {*/
+  /*position: absolute;*/
+  /*right: 1em;*/
+  /*top: 1em;*/
+  /*font-size: 1em;*/
+/*}*/
