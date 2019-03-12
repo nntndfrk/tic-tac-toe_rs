@@ -1,7 +1,9 @@
 /**
- * @typedef {{winner?: number, winnerLine?: Array}
+ * @typedef {Object<number, Array>} WinnerResult
+ * @property {number} winner The winner result.
+ * @property {Array} [winnerLine] The winner combination in winner-matrix.
  */
-var WinnerResult;
+
 
 export class Game {
   /**
@@ -16,6 +18,7 @@ export class Game {
     this.board = board;
     this.gameInfo = gameInfo;
     this.restartButton = restartButton;
+    this.isFirstStep = true;
     this.xIsNext = null;
     this.squares = null;
     this.boardHandler = null;
@@ -120,6 +123,7 @@ export class Game {
       Array(3).fill(null),
     ];
     this.xIsNext = true;
+    this.isFirstStep = true;
     this.isGameFinished = false;
     this.initAllSquares();
     this.clearEndLines();
@@ -150,6 +154,11 @@ export class Game {
    * Render actual game info
    */
   renderGameInfo() {
+    if (this.isFirstStep) {
+      this.gameInfo.innerHTML = '<span class="player">X</span> makes first step';
+      this.isFirstStep = false;
+      return;
+    }
     this.gameInfo.innerHTML = this.xIsNext ?
       'Next player: <span class="player">X</span>' :
       'Next player: <span class="player">O</span>';
@@ -174,7 +183,7 @@ export class Game {
   /**
    * Calculate the winner according to the winner-matrix.
    *
-   * @returns {(WinnerResult|Object)} Current winner result
+   * @returns {WinnerResult} Current winner result
    */
   calculateWinner() {
 
