@@ -1,13 +1,17 @@
-import { Game } from './game.js';
+import { GameModel } from './game/gameModel.js';
+import { GameView } from './game/gameView.js';
+import { GameController } from './game/gameController.js';
 
-/**
- * Get all DOM-elements
- */
-const gameInfo = document.querySelector('#game-info');
-const board = document.querySelector('#game-board');
-const restartButton = document.querySelector('#game-restart');
+const DOMElements = {
+  gameInfo: document.querySelector("#game-info"),
+  board: document.querySelector("#game-board"),
+  restartButton: document.querySelector("#game-restart"),
+  line: document.querySelector("#line")
+};
 
-/**
- * Init Game instance
- */
-new Game(board, gameInfo, restartButton);
+const gameModel = new GameModel();
+const gameView = new GameView(DOMElements);
+
+const gameController = new GameController(gameModel, gameView);
+
+gameController.init();

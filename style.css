@@ -24,7 +24,7 @@ body {
 }
 
 .player, .header h1 {
-  font-family: 'Oleo Script';
+  font-family: 'Oleo Script', serif;
   font-weight: bold;
 }
 
@@ -58,7 +58,6 @@ body {
   cursor: pointer;
   border: 1px solid #999;
   padding: 0;
-  text-align: center;
   border-radius: 15px;
 }
 
@@ -103,7 +102,6 @@ body {
 }
 
 .axis-line {
-  visibility: hidden;
   position: absolute;
   height: 10px;
   width: 120%;
