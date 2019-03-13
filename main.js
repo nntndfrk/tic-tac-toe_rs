@@ -1,13 +1,25 @@
-import { Game } from './game.js';
+import { GameModel } from './game/gameModel.js';
+import { GameView } from './game/gameView.js';
+import { GameController } from './game/gameController.js';
+import { utils } from './game/utils.js';
 
-/**
- * Get all DOM-elements
- */
-const gameInfo = document.querySelector('#game-info');
-const board = document.querySelector('#game-board');
-const restartButton = document.querySelector('#game-restart');
+const DOMElements = {
+  gameInfo: document.querySelector("#game-info"),
+  board: document.querySelector("#game-board"),
+  restartButton: document.querySelector("#game-restart"),
+  sizeSelect: document.querySelector('#size'),
+  // line: document.querySelector("#line")
+};
 
-/**
- * Init Game instance
- */
-new Game(board, gameInfo, restartButton);
+// const size = ;
+
+const gameModel = new GameModel(utils);
+const gameView = new GameView(DOMElements);
+
+const gameController = new GameController(gameModel, gameView);
+
+gameController.init();
+
+// window.onmousemove = function (e) {
+//   console.log(e.target.offsetLeft);
+// };

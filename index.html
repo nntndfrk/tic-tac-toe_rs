@@ -15,39 +15,23 @@
 <body>
   <header class="header">
     <h1>Tic Tac Toe Game</h1>
+    <label>
+      <span>Select game size</span>
+      <select id="size">
+        <option value="3" selected>3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+      </select>
+    </label>
+
   </header>
   <section class="section game-section">
-    <!--<div class="container">-->
+
     <div class="game">
       <div class="game-info-container">
         <div class="content is-medium" id="game-info"></div>
       </div>
-      <div id="game-board">
-        <div class="board-row">
-          <span class="square" data-index="0:0"></span>
-          <span class="square" data-index="0:1"></span>
-          <span class="square" data-index="0:2"></span>
-        </div>
-        <div class="board-row">
-          <span class="square" data-index="1:0"></span>
-          <span class="square" data-index="1:1">
-          </span>
-          <span class="square" data-index="1:2"></span>
-        </div>
-        <div class="board-row">
-          <span class="square" data-index="2:0"></span>
-          <span class="square" data-index="2:1"></span>
-          <span class="square" data-index="2:2"></span>
-        </div>
-        <div class="axis-line axis-line__0"></div>
-        <div class="axis-line axis-line__1"></div>
-        <div class="axis-line axis-line__2"></div>
-        <div class="axis-line axis-line__3"></div>
-        <div class="axis-line axis-line__4"></div>
-        <div class="axis-line axis-line__5"></div>
-        <div class="axis-line axis-line__6"></div>
-        <div class="axis-line axis-line__7"></div>
-      </div>
+      <div id="game-board"></div>
       <div class="game-info-container">
         <button class="button" id="game-restart">Restart game</button>
       </div>
@@ -56,7 +40,10 @@
 
   </section>
 
-  <script type="module" src="game.js" async></script>
+  <script type="module" src="game/utils.js" async></script>
+  <script type="module" src="game/gameView.js" async></script>
+  <script type="module" src="game/gameModel.js" async></script>
+  <script type="module" src="game/gameController.js" async></script>
   <script type="module" src="main.js" async></script>
 </body>
 
