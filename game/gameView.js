@@ -2,12 +2,13 @@ export class GameView {
   constructor(DOMElements) {
     this.DOMElements = DOMElements;
     this.oldLineIndex = null;
+    this.playGroudSize = 480;
+    this.baseSize = 3;
+    this.size = 3;
+    this.baseFontSize = 140;
   }
 
   resetView() {
-    // this.DOMElements.line.style.display = 'none';
-    // this.DOMElements.line.classList.remove(`axis-line__${this.oldLineIndex}`);
-
     [...this.DOMElements.board.children].forEach(boardRow => {
       [...boardRow.children].forEach(cell => {
         cell.innerText = "";
@@ -29,16 +30,23 @@ export class GameView {
   }
 
   renderGameBoard(size) {
+    this.size = size;
     const fragment = document.createDocumentFragment();
-
     for (let i = 0; i < size; i++) {
       let boardRow = document.createElement('div');
       boardRow.classList.add('board-row');
       for (let j = 0; j < size; j++) {
-        boardRow.innerHTML += `<span class="square" data-index="${i}:${j}" title="${i}:${j}"></span>`
+        boardRow.innerHTML +=
+          `<span 
+            class="square" 
+            data-index="${i}:${j}" 
+            title="${i}:${j}"
+            style="width: ${parseInt((this.playGroudSize - size*2)/size)}px; height: ${parseInt((this.playGroudSize - size*2)/size)}px"
+          ></span>`
       }
-      fragment.appendChild(boardRow)
+      fragment.appendChild(boardRow);
     }
+
     this.DOMElements.board.innerHTML = '';
     this.DOMElements.board.appendChild(fragment);
   }
@@ -46,8 +54,15 @@ export class GameView {
    renderPressedSquare(row, column, value) {
     document.querySelector(`[data-index='${row}:${column}']`).innerHTML =
       value === "O"
-        ? `<span class="blue"><i class="far fa-circle"></i></span>`
-        : `<span class="yellow"><i class="fas fa-times"></i></span>`;
+        // ? `<span class="blue"><i class="far fa-circle"></i></span>`
+        // : `<span class="yellow"><i class="fas fa-times"></i></span>`;
+        ? `<span class="blue" style="font-size: ${parseInt(this.baseFontSize * this.baseSize/this.size)}px">
+            O
+          </span>`
+        : `<span class="yellow" style="font-size: ${parseInt(this.baseFontSize * this.baseSize/this.size)}px">
+            X
+          </span>`;
+
   };
 
   renderWinner(winnerResult) {
@@ -90,24 +105,21 @@ export class GameView {
   //     }
   //   });
   //
-  //   let svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-  //   let svgLine = document.createElementNS('http://www.w3.org/2000/svg','line');
-  //   svg.setAttribute("id","svg");
-  //   svg.setAttribute("style", "width: " + 100 + "px; height: " + 100 + "px;");
-  //   svgLine.setAttribute("x1", startEndPoints[0][0]);
-  //   svgLine.setAttribute("y1", startEndPoints[0][1]);
-  //   svgLine.setAttribute("x2", startEndPoints[1][0]);
-  //   svgLine.setAttribute("y2", startEndPoints[1][1]);
-  //   svgLine.setAttribute("stroke","blue");
-  //   svgLine.setAttribute("id", "line");
-  //   // this.DOMElements.board.insertBefore(svg, this.DOMElements.board.firstChild);
-  //   document.body.insertBefore(svg, document.body.firstChild);
-  //   document.getElementById("svg").appendChild(svgLine);
-  //   // this.DOMElements.line.innerHTML = `<line x1="${startEndPoints[0][0]}" y1="${startEndPoints[0][1]}" x2="${startEndPoints[1][0]}"
-  //   //                     y2="${startEndPoints[1][1]}"  style="stroke:rgb(255,0,0);stroke-width:2" />`;
-  //
-  //   // this.DOMElements.line.innerHTML = `<line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />`;
-  //
-  //
+  //   const newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  //   newLine.setAttribute('id','line2');
+  //   newLine.setAttribute('x1', startEndPoints[0][0]);
+  //   newLine.setAttribute('y1',startEndPoints[0][0]);
+  //   newLine.setAttribute('x2',startEndPoints[0][0]);
+  //   newLine.setAttribute('y2',startEndPoints[0][0]);
+  //   newLine.setAttribute("stroke", "black");
+  //   document.getElementsByTagName('svg')[0].append(newLine);
+    // this.DOMElements.board.insertBefore(svg, this.DOMElements.board.firstChild);
+
+    // this.DOMElements.line.innerHTML = `<line x1="${startEndPoints[0][0]}" y1="${startEndPoints[0][1]}" x2="${startEndPoints[1][0]}"
+    //                     y2="${startEndPoints[1][1]}"  style="stroke:rgb(255,0,0);stroke-width:2" />`;
+
+    // this.DOMElements.line.innerHTML = `<line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />`;
+
+
   // }
 }

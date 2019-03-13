@@ -43,20 +43,17 @@ body {
   position: relative;
 }
 
-#svg{
-  position:absolute;
+.svg-line {
+  position: absolute;
 }
 
-.game-section {
-  text-align: center;
-}
 
 .square {
   display: inline-block;
   text-align: center;
   background-color: #4B443C;
-  width: 160px;
-  height: 160px;
+  /*width: 160px;*/
+  /*height: 160px;*/
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
@@ -80,7 +77,9 @@ body {
 
 .yellow,
 .blue {
-  font-size: 140px;
+  /*font-size: 140px;*/
+  font-family: 'Oleo Script', serif;
+  font-size: inherit;
   display: block;
   position: relative;
   left: 50%;
@@ -123,53 +122,6 @@ body {
   position: relative;
 }
 
-.axis-line__0 {
-  left: 50%;
-  top: calc(16.5% - 4px);
-  transform: translate(-50%) scaleX(.9);
-}
-
-.axis-line__1 {
-  left: 50%;
-  top: calc(50% - 4px);
-  transform: translate(-50%) scaleX(.9);
-}
-
-.axis-line__2 {
-  left: 50%;
-  top: calc(82.5% - 3px);
-  transform: translate(-50%) scaleX(.9);
-}
-
-.axis-line__3 {
-  left: 16.5%;
-  top: calc(50% - 2px);
-  transform: translate(-50%) rotate(90deg) scaleX(.9);
-}
-
-.axis-line__4 {
-  left: 50%;
-  top: calc(50% - 2px);
-  transform: translate(-50%) rotate(90deg) scaleX(.9);
-}
-
-.axis-line__5 {
-  left: 83.5%;
-  top: calc(50% - 2px);
-  transform: translate(-50%) rotate(90deg) scaleX(.9);
-}
-
-.axis-line__6 {
-  left: 50%;
-  top: calc(50% - 2px);
-  transform: translate(-50%, -50%) rotate(45deg) scaleX(1.2);
-}
-
-.axis-line__7 {
-  left: 50%;
-  top: calc(50% - 2px);
-  transform: translate(-50%, -50%) rotate(-45deg) scaleX(1.2);
-}
 
 @media (max-width: 630px) {
   .header {
@@ -227,9 +179,13 @@ body {
   }
 }
 
-/*select {*/
-  /*position: absolute;*/
-  /*right: 1em;*/
-  /*top: 1em;*/
-  /*font-size: 1em;*/
-/*}*/
+label {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  font-size: 1em;
+}
+
+select {
+  font-size: inherit;
+}

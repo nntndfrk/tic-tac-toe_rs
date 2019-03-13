@@ -2,7 +2,7 @@ export class GameModel {
   constructor(utils, size = 3) {
     this.utils = utils;
     this.size = size;
-    this.winnerMatrix = this.utils.getWinnerCombinations(size);
+    this.winnerMatrix = null;
     this.gameData = [];
     this.isFirstStep = true;
     this.xIsNext = null;
@@ -10,6 +10,7 @@ export class GameModel {
   }
 
   resetData() {
+    this.winnerMatrix = this.utils.getWinnerCombinations(this.size);
     this.gameData = [];
     for (let i = 0; i<this.size; i++) {
         let outerArr = [];

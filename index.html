@@ -15,11 +15,15 @@
 <body>
   <header class="header">
     <h1>Tic Tac Toe Game</h1>
-    <!--<select id="size">-->
-      <!--<option value="3">3</option>-->
-      <!--<option value="4">4</option>-->
-      <!--<option value="5">5</option>-->
-    <!--</select>-->
+    <label>
+      <span>Select game size</span>
+      <select id="size">
+        <option value="3" selected>3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+      </select>
+    </label>
+
   </header>
   <section class="section game-section">
 
@@ -27,26 +31,7 @@
       <div class="game-info-container">
         <div class="content is-medium" id="game-info"></div>
       </div>
-      <div id="game-board">
-        <!--<div class="board-row">-->
-          <!--<span class="square" data-index="0:0"></span>-->
-          <!--<span class="square" data-index="0:1"></span>-->
-          <!--<span class="square" data-index="0:2"></span>-->
-        <!--</div>-->
-        <!--<div class="board-row">-->
-          <!--<span class="square" data-index="1:0"></span>-->
-          <!--<span class="square" data-index="1:1"></span>-->
-          <!--<span class="square" data-index="1:2"></span>-->
-        <!--</div>-->
-        <!--<div class="board-row">-->
-          <!--<span class="square" data-index="2:0"></span>-->
-          <!--<span class="square" data-index="2:1"></span>-->
-          <!--<span class="square" data-index="2:2"></span>-->
-        <!--</div>-->
-        <!--<div id="line">-->
-        <!--</div>-->
-      </div>
-
+      <div id="game-board"></div>
       <div class="game-info-container">
         <button class="button" id="game-restart">Restart game</button>
       </div>

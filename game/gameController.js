@@ -27,6 +27,13 @@ export class GameController {
 
       this.view.renderWinner(winnerResult);
     };
+
+    this.selectHandler = ({target: select}) => {
+      console.log(select.value);
+      this.model.size = +select.value;
+      this.isGameStarted = false;
+      this.startNewGame();
+    }
   }
 
   init() {
@@ -37,6 +44,7 @@ export class GameController {
   initListeners() {
     this.view.DOMElements.restartButton.addEventListener('click', this.resetHandler);
     this.view.DOMElements.board.addEventListener('click', this.boardHandler);
+    this.view.DOMElements.sizeSelect.addEventListener('change', this.selectHandler);
   }
 
   startNewGame() {

@@ -11,9 +11,9 @@ const DOMElements = {
   // line: document.querySelector("#line")
 };
 
-const size = 5;
+// const size = ;
 
-const gameModel = new GameModel(utils, size);
+const gameModel = new GameModel(utils);
 const gameView = new GameView(DOMElements);
 
 const gameController = new GameController(gameModel, gameView);
