@@ -2,49 +2,51 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tic Tac Toe</title>
-  <link rel="shortcut icon" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header class="header">
+<header class="header">
     <h1>Tic Tac Toe Game</h1>
     <label>
-      <span>Select game size</span>
-      <select id="size">
-        <option value="3" selected>3</option>
-        <option value="5">5</option>
-        <option value="7">7</option>
-      </select>
+        <span>Select game size</span>
+        <select id="size">
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+        </select>
     </label>
 
-  </header>
-  <section class="section game-section">
+</header>
+<section class="section game-section">
 
     <div class="game">
-      <div class="game-info-container">
-        <div class="content is-medium" id="game-info"></div>
-      </div>
-      <div id="game-board"></div>
-      <div class="game-info-container">
-        <button class="button" id="game-restart">Restart game</button>
-      </div>
+        <div class="game-info-container">
+            <div class="content is-medium" id="game-info"></div>
+        </div>
+        <div id="game-board">
+        </div>
+        <div class="game-info-container">
+            <button class="button" id="game-restart">Restart game</button>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
-  <script type="module" src="game/utils.js" async></script>
-  <script type="module" src="game/gameView.js" async></script>
-  <script type="module" src="game/gameModel.js" async></script>
-  <script type="module" src="game/gameController.js" async></script>
-  <script type="module" src="main.js" async></script>
+<script type="module" src="game/utils.js" async></script>
+<script type="module" src="game/gameView.js" async></script>
+<script type="module" src="game/gameModel.js" async></script>
+<script type="module" src="game/gameController.js" async></script>
+<script type="module" src="main.js" async></script>
 </body>
 
 </html>
