@@ -122,15 +122,52 @@ body {
   position: relative;
 }
 
+label {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  font-size: 1em;
+}
+
+select {
+  font-size: inherit;
+}
+
+#svg {
+  position: absolute;
+  z-index: 2;
+}
+
+@media (max-width: 810px) {
+  label {
+    position: initial;
+  }
+}
 
 @media (max-width: 630px) {
   .header {
     font-size: 5vw;
   }
-  .square {
-    width: 25vw;
-    height: 25vw;
-    border-radius: 2.4vw;
+
+  .square-3 {
+    width: 25vw !important;
+    height: 25vw !important;
+    border-radius: 2.4vw !important;
+    font-size: 17vw !important;
+  }
+
+  .square-5 {
+    width: 15vw !important;
+    height: 15vw !important;
+    border-radius: 1.4vw !important;
+    font-size: 10vw !important;
+  }
+
+  .square-7 {
+    width: 10vw !important;
+    height: 10vw !important;
+    border-radius: 1vw !important;
+    font-size: 7vw !important;
   }
 
   .yellow,
@@ -179,13 +216,3 @@ body {
   }
 }
 
-label {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  font-size: 1em;
-}
-
-select {
-  font-size: inherit;
-}

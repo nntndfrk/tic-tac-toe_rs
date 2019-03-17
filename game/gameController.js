@@ -2,7 +2,6 @@ export class GameController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    this.isGameStarted = false;
 
     this.resetHandler = () => {
       this.startNewGame();
@@ -29,9 +28,7 @@ export class GameController {
     };
 
     this.selectHandler = ({target: select}) => {
-      console.log(select.value);
-      this.model.size = +select.value;
-      this.isGameStarted = false;
+      localStorage.setItem('size', select.value);
       this.startNewGame();
     }
   }
@@ -48,10 +45,14 @@ export class GameController {
   }
 
   startNewGame() {
-    if (!this.isGameStarted) {
-      this.isGameStarted = true;
-      this.view.renderGameBoard(this.model.size);
+    const size = +localStorage.getItem('size');
+
+    if (size) {
+      this.model.size = size;
+      this.view.DOMElements.sizeSelect.value = size;
     }
+
+    this.view.renderGameBoard(this.model.size);
     this.model.resetData();
     this.view.resetView();
     this.view.renderInfo(this.model.isFirstStep, this.model.xIsNext);

@@ -12,12 +12,12 @@ export class GameModel {
   resetData() {
     this.winnerMatrix = this.utils.getWinnerCombinations(this.size);
     this.gameData = [];
-    for (let i = 0; i<this.size; i++) {
-        let outerArr = [];
-        for (let j = 0; j<this.size; j++) {
-          outerArr.push(null)
-        }
-        this.gameData.push(outerArr);
+    for (let i = 0; i < this.size; i++) {
+      let outerArr = [];
+      for (let j = 0; j < this.size; j++) {
+        outerArr.push(null)
+      }
+      this.gameData.push(outerArr);
     }
 
 
@@ -28,13 +28,9 @@ export class GameModel {
 
   makeStep(row, column) {
     if (this.isFirstStep) this.isFirstStep = false;
-
     if (this.gameData[row][column] || this.isGameFinished === true) return;
-
     this.gameData[row][column] = this.xIsNext ? 'X' : 'O';
-
     this.xIsNext = !this.xIsNext;
-    // console.log(this.gameData);
     return this.gameData[row][column];
   }
 
@@ -48,7 +44,6 @@ export class GameModel {
       }
 
       if (valueList.every(value => value === 'X')) {
-        // console.log(winnerLine);
         winnerCheck = {
           winner: 1,
           line: winnerLine
@@ -73,42 +68,4 @@ export class GameModel {
     }
     return winnerCheck;
   }
-
-  // calculateWinnerMaterix(size) {
-  //   let outArr = [];
-  //   let innerArr = [];
-  //
-  //   for (let i = 0; i<size; i++) {
-  //     // horizontal combinations
-  //     innerArr = [];
-  //     for (let j = 0; j<size; j++) {
-  //       innerArr.push([i, j]);
-  //     }
-  //     outArr.push(innerArr);
-  //   }
-  //
-  //   // vertical combinations
-  //   for (let i = 0; i<size; i++) {
-  //     innerArr = [];
-  //     for (let j = 0; j<size; j++) {
-  //       innerArr.push([j, i]);
-  //     }
-  //     outArr.push(innerArr);
-  //   }
-  //
-  //   // diagonal combinations
-  //   for (let i = 0; i<size; i++) {
-  //     innerArr = [];
-  //     for (let j = 0; j<size; j++) {
-  //       if (i === j || i !== j) {
-  //         innerArr.push([j, i]);
-  //       }
-  //     }
-  //     outArr.push(innerArr);
-  //   }
-  //
-  //   return outArr;
-  // }
-
-
 }
